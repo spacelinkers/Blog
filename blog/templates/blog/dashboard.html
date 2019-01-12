@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title>Articles</title>
+{% endblock %}
+
+{% block body %}
+<p>Username: {{user.username}}</p>
+<p>First Name: {{user.first_name}}</p>
+<p>Last Name: {{user.last_name}}</p>
+<p>City: {{user.userprofile.city}}</p>
+<p>Phone: {{user.userprofile.phone}}</p>
+<p>Email: {{user.email}}</p>
+<p>Website: {{user.userprofile.website}}</p>
+{% endblock %}
