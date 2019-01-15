@@ -77,12 +77,13 @@ class EditUserInfoView(View):
 
     def post(self, request):
         profile = request.user.userprofile
-        form = EditUserInfoFormView(request.POST, instance = profile)
+        form = EditUserInfoFormView(request.POST, request.FILES, instance = profile)
 
         if form.is_valid():
             post = form.save(commit = False)
             post.user = request.user
             post.save()
+
             return redirect('blog:dashboard')
         context = {
             'form':form,

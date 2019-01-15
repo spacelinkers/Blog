@@ -38,7 +38,7 @@ class AddarticleView(TemplateView):
         return render(request, self.template_name, context)
     
     def post(self, request):
-        form = AddarticleFormView(request.POST)
+        form = AddarticleFormView(request.POST, request.FILES)
 
         if form.is_valid():
             post = form.save(commit = False)

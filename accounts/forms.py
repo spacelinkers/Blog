@@ -41,6 +41,7 @@ class EditProfileFormView(UserChangeForm):
         )
 
 class EditUserInfoFormView(forms.ModelForm):
+
     class Meta:
         model = UserProfile
         fields = (
@@ -50,5 +51,4 @@ class EditUserInfoFormView(forms.ModelForm):
             'website',
             'description',
             'profile_image',
-
         )
