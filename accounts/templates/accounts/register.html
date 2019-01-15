@@ -6,9 +6,28 @@
 {% endblock %}
 
 {% block body %}
+<div class="card mb-4">    
 <form method="post">
     {% csrf_token %}
-    {{form|crispy}}
-    <button type="submit">Sign up</button>
+
+    {{ form.username|as_crispy_field }}
+
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.first_name|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.last_name|as_crispy_field }}
+      </div>
+    </div>
+
+    {{ form.email|as_crispy_field }}
+    
+    {{ form.password1|as_crispy_field }}
+    <small class="form-text text-muted">{{ form.password1.help_text }}</small>
+    {{ form.password2|as_crispy_field }}
+
+    <button type="submit" class = "btn btn-danger">Sign up</button>
 </form>
+</div>
 {% endblock %}

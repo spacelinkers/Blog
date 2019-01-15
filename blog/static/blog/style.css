@@ -31,10 +31,10 @@ body{
   box-shadow: 5px 10px 10px #888888;
 }
 
-.dropdown-divider{
+/* .dropdown-divider{
   width: 76%;
   margin: 1rem 0 .5rem 2rem
-}
+} */
 
 .login-form .form-group {
   margin-bottom:10px;
@@ -109,3 +109,55 @@ font-size:12px;
 text-align:center;
 }
 
+
+.dropdown {
+  background:#343A40;
+  border:1px solid #343A40;
+  border-radius:4px;
+  width:200px;    
+}
+.dropdown img.rounded-circle{
+  padding: 5px 5px 5px 5px;
+}
+.dropdown a{
+  color: #ffffff;
+  padding-left: 10px
+}
+.dropdown-menu.li.a {
+  color:#428bca;
+}
+.fa.pull-right{
+  padding: 5px 0px 0px 0px;
+}
+
+.dropdown ul.dropdown-menu {
+  background:#343A40;
+  border-radius:4px;
+  box-shadow:none;
+  margin-top:20px;
+  width:200px;
+}
+
+.dropdown span.pull-right{ 
+  margin-right: 20px;
+}
+.dropdown ul.dropdown-menu:before {
+  content: "";
+  border-bottom: 10px solid #343A40;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+  content: "";
+  border-bottom: 12px solid rgb(71, 67, 67);
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  z-index: 9;
+}

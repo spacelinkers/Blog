@@ -43,7 +43,7 @@
  
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">SpaceLinkers</a>
+                <a class="navbar-brand" href="{% url 'blog:articles' %}">SpaceLinkers</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,35 +51,35 @@
                     
                     {% if user.is_authenticated %}
                     
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'blog:dashboard' %}">Dashboard </a>
-                            <span class="sr-only">(current)</span>
-                        </li>  
+                    <ul class="navbar-nav mr-auto"> 
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'blog:articles' %}">Articles </a>
                             <span class="sr-only">(current)</span>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'accounts:edit_profile' %}">Edit Profile </a>
-                            <span class="sr-only">(current)</span>
-                        </li> 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'accounts:edit_user_info' %}">Edit User Info </a>
-                            <span class="sr-only">(current)</span>
-                        </li> 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'accounts:change_password' %}">Change Password </a>
-                            <span class="sr-only">(current)</span>
-                        </li> 
                            
                     </ul>
                     <ul class="navbar-nav mr-right">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'accounts:logout' %}">Log out </a>
-                            <span class="sr-only">(current)</span>
-                        </li>
+                        <!-- <a>
+                            <img src="{{user.userprofile.profile_image.url}}" class="rounded-circle" width="50">
+                        </a> --> 
+                        <li class="dropdown nav-item active">
+                            <a class="nav-link" href="#" class="dropdown" data-toggle="dropdown"> {{user.username}}<span class="fa fa-user pull-right"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link" href="{% url 'blog:dashboard' %}"> Dashboard <span class="fa fa-dashboard pull-right"></span></a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a class="nav-link" href="{% url 'accounts:edit_profile' %}"> Settings <span class="fa fa-user pull-right"></span></a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a class="nav-link" href="{% url 'accounts:logout' %}">Log out<span class="fa fa-lock pull-right"></span></a>
+                                </li>
+                            </ul>
+                        </li>  
                     </ul>
+                 
 
                     {% else %}
 
@@ -102,7 +102,7 @@
 
                     {% endif %}
 
-                </div>
+                </div> 
             </div>
         </nav>
 
