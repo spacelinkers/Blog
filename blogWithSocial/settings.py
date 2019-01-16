@@ -136,14 +136,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/media/')
 
 
 LOGIN_EXEMPT_URLS = (
-    'account/logout/',
-    'account/register/',
-    'account/reset-password/',
-    'account/reset-password/done/',
-    'account/reset-password/confirm/<uidb64>/<token>/',
-    'account/reset-password/complete/',
+    r'^account/logout/$',
+    r'^account/register/$',
+    r'^account/reset-password/$',
+    r'^account/reset-password/done/$',
+    r'^account/reset-password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+    r'^account/reset-password/complete/$',
 )
 
 ACCESS_ALL_URL = (
-    'blog/article/<int:id>/',
+    r'^blog/$',
+    r'^blog/article/(?P<id>\d+)/$',
 )

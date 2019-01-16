@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from blog.views import (
     ArticlesView, DashboardView, AddarticleView,
@@ -7,12 +7,12 @@ from blog.views import (
 
 app_name = 'blog'
 urlpatterns = [
-    path('', ArticlesView.as_view(), name = 'articles'),
-    path('dashboard/', DashboardView.as_view(), name = 'dashboard'),
-    path('addarticle/', AddarticleView.as_view(), name = 'addarticle'),
-    path('article/<int:id>/', ArticleView.as_view(), name = 'article'),
-    path('update/<int:id>/', UpdateView.as_view(), name = 'update'),
-    path('delete/<int:id>/', DeleteView.as_view(), name = 'delete'),
-    path('comment/<int:id>/', CommentView.as_view(), name = 'comment'),
+    re_path(r'^$', ArticlesView.as_view(), name = 'articles'),
+    re_path(r'^dashboard/$', DashboardView.as_view(), name = 'dashboard'),
+    re_path(r'^addarticle/$', AddarticleView.as_view(), name = 'addarticle'),
+    re_path(r'^article/(?P<id>\d+)/$', ArticleView.as_view(), name = 'article'),
+    re_path(r'^update/(?P<id>\d+)/$', UpdateView.as_view(), name = 'update'),
+    re_path(r'^delete/(?P<id>\d+)/$', DeleteView.as_view(), name = 'delete'),
+    re_path(r'^comment/(?P<id>\d+)/$', CommentView.as_view(), name = 'comment'),
 
 ]
