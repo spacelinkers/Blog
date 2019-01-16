@@ -17,7 +17,13 @@
     
             <!-- Blog Post -->
             <div class="card mb-4">
-            <img class="card-img-top" src="{{articles.article_image.url}}" alt="Card image cap">
+            {% load static%}
+            {% if articles.article_image %}
+            <img class="card-img-top" src="{{articles.article_image.url}}" alt="Card image cap">  
+            {% else %}
+                <img src="{% static 'accounts/default_user.png' %}" class="rounded" width="150">
+            {% endif %}  
+            
             <div class="card-body">
                 <h1 class="card-title">{{articles.title}}</h1>
                 Posted on {{articles.create_date}} by

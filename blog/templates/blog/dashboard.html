@@ -24,8 +24,13 @@
         <hr>
         <div class="row">        
             <div class="col-md-6">   
-                <div class="card mb-4">      
-                    <img src="{{user.userprofile.profile_image.url}}" class="rounded" width="150">  
+                <div class="card mb-4">  
+                    {% load static%}
+                    {% if user.userprofile.profile_image %}
+                        <img src="{{user.userprofile.profile_image.url}}" class="rounded" width="150">  
+                    {% else %}
+                        <img src="{% static 'accounts/default_user.png' %}" class="rounded" width="150">
+                    {% endif %}  
                     <p>Username: {{user.username}}</p>
                     <p>First Name: {{user.first_name}}</p>
                     <p>Last Name: {{user.last_name}}</p>

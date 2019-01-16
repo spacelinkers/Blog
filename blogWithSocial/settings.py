@@ -129,6 +129,7 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/blog/dashboard/'
 LOGIN_URL = '/account/login/'
+ALL_URL = '/blog/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/media/')
@@ -144,6 +145,5 @@ LOGIN_EXEMPT_URLS = (
 )
 
 ACCESS_ALL_URL = (
-    'blog/',
-    'article/<int:id>/',
+    'blog/article/<int:id>/',
 )
