@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" 
+            crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+            crossorigin="anonymous">   
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+            crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" 
+            crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" 
+            crossorigin="anonymous">
+        </script>    
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog/style.css'%}">
+        <style>
+            .fakeimg {
+                height: 200px;
+                background: #aaa;
+            }
+        </style>
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="jumbotron">
+            <h1>Space Linkers</h1>
+            <p>This is my site!</p> 
+        </div>
+ 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'blog:articles' %}">SpaceLinkers</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    
+                    {% if user.is_authenticated %}
+                    
+                    <ul class="navbar-nav mr-auto"> 
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'blog:articles' %}">Articles </a>
+                            <span class="sr-only">(current)</span>
+                        </li>
+                           
+                    </ul>
+                    <ul class="navbar-nav mr-right">
+                        <li class="dropdown nav-item active">
+                            <a class="nav-link" href="#" class="dropdown" data-toggle="dropdown"> {{user.username}}<span class="fa fa-user pull-right"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link" href="{% url 'blog:dashboard' %}"> Dashboard <span class="fa fa-dashboard pull-right"></span></a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a class="nav-link" href="{% url 'accounts:edit_profile' %}"> Settings <span class="fa fa-user pull-right"></span></a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
+                                    <a class="nav-link" href="{% url 'accounts:logout' %}">Log out<span class="fa fa-lock pull-right"></span></a>
+                                </li>
+                            </ul>
+                        </li>  
+                    </ul>
+                 
+
+                    {% else %}
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'blog:articles' %}">Articles </a>
+                            <span class="sr-only">(current)</span>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-right">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'accounts:register' %}">Sign Up </a>
+                            <span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'accounts:login' %}">Log in</a>
+                            <span class="sr-only">(current)</span>
+                        </li>
+                    </ul>
+
+                    {% endif %}
+
+                </div> 
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+            {% block body %}
+            {% endblock %}
+            <br>
+        </div>
+
+        <footer class="footer p-t-1" >
+            
+                <a href="#"><i class="fa fa-facebook-official fa-2x"></i></a>
+                <a href="#"><i class="fa fa-pinterest-p fa-2x"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+                <a href="#"><i class="fa fa-flickr fa-2x"></i></a>
+                <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
+    
+                <p class="h6">
+                    @all right reserved by Hasan
+                </p>
+        </footer>
+    </body>
+</html>
+
+

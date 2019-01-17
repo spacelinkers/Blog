@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title>Articles</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+        <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black">
+            <!--<li class="nav-header"></li>-->
+            <li><a href="{% url 'blog:dashboard' %}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{% url 'accounts:edit_profile' %}"><i class="fa fa-user"></i> Edit Profile</a></li>
+            <li><a href="{% url 'accounts:edit_user_info' %}"><i class="fa fa-user"></i> Edit User Info</a></li>
+            <li><a href="{% url 'accounts:change_password' %}"><i class="fa fa-lock"></i> Change Password</a></li>
+
+        </ul>
+    </div><!-- /span-3 -->
+    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+        <!-- Right -->
+        <a href="{% url 'blog:dashboard' %}"><strong><span class="fa fa-dashboard"></span> My Dashboard</strong></a>
+        <hr>
+        <div class="row">        
+            <div class="col-md-6">   
+                <div class="card mb-4">  
+                    {% load static%}
+                    {% if user.userprofile.profile_image %}
+                        <img src="{{user.userprofile.profile_image.url}}" class="rounded" width="150">  
+                    {% else %}
+                        <img src="{% static 'accounts/default_user.png' %}" class="rounded" width="150">
+                    {% endif %}  
+                    <p>Username: {{user.username}}</p>
+                    <p>First Name: {{user.first_name}}</p>
+                    <p>Last Name: {{user.last_name}}</p>
+                    <p>City: {{user.userprofile.city}}</p>
+                    <p>Phone: {{user.userprofile.phone}}</p>
+                    <p>Email: {{user.email}}</p>
+                    <p>Website: {{user.userprofile.website}}</p>
+                </div>
+            </div>
+            <div class="col-md-6">              
+                <section class="box"></section>
+            </div>
+               
+            <div class="clearfix"></div> <!--**************clearfix**************-->
+               
+            <div class="col-md-12">              
+                <section class="box"></section>
+            </div>
+               
+        </div>
+    </div>
+</div>
+
+{% endblock %}

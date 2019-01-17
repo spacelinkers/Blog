@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title>Post Article</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="row">
+
+    <div class="col-md-12">
+        <h1>Publisg a article</h1>
+        <!-- Blog Post -->
+        <div class="card mb-8">
+        
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.media}}
+                {{form|crispy}}
+                <br>
+                <button type="submit" class = "btn btn-danger">Publish</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+{% endblock %}
