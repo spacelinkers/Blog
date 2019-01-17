@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
+blogWithSocial/settings/local.py
+blogWithSocial/settings/dev.py
 
 
 # C extensions
