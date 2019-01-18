@@ -24,14 +24,6 @@ DATABASES['default'].update(db_from_env)
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_TMP = os.path.join(BASE_DIR, 'static')
-
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
-
-STATICFILES_DIRS = (
-os.path.join(BASE_DIR, 'static'),
-)
 
 
 # Simplified static file serving.
