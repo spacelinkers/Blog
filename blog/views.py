@@ -9,7 +9,7 @@ class ArticlesView(TemplateView):
     template_name = 'blog/articles.html'
     
     def get(self, request):
-        articles = Article.objects.all().order_by('-create_date')[:5]
+        articles = Article.objects.all().order_by('-create_date')
         users = User.objects.all()
         context = {
             'articles': articles,
@@ -60,7 +60,7 @@ class ArticleView(DetailView):
     def get(self, request, id):
         articles = get_object_or_404(Article,id = id)
         context = {
-            'articles': articles,
+            'article': articles,
         }
         return render(request, self.template_name, context)
     
