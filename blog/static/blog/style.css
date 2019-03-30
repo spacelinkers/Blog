@@ -343,6 +343,17 @@ img.circle {
   margin-left: 41px;
   margin-right: 40px;
 }
+.login-btn {
+  width: 410px;
+  margin-bottom: 5px;
+  background-color: #363636;
+  border-color: #363636;
+  text-transform: uppercase;
+}
+.btn-primary:hover {
+  background-color: #363636;
+  border-color: #363636;
+}
 
 /* .login-form {
   text-align: center;
@@ -432,6 +443,11 @@ img.circle {
 .single-article-des {
   padding-top: 20px;
   padding-bottom: 40px;
+}
+
+.textinput {
+  width: 410px;
+  height: 45px;
 }
 
 #justpushtobottom {

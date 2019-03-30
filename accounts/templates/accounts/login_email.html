@@ -34,9 +34,22 @@
 
         <form method="post">
           {% csrf_token %}
-          {{ form | crispy }}
+
+          <div
+            class="input is_danger is_medium"
+            placeholder="Username"
+            style="margin-bottom: 5px"
+          >
+            {{ form.username | as_crispy_field }}
+          </div>
+          <div class="input is_danger is_medium" placeholder="Password">
+            {{ form.password | as_crispy_field }}
+          </div>
+
           <br />
-          <button type="submit" class="btn btn-primary">Log in</button>
+          <button type="submit" class="btn btn-primary login-btn">
+            Log in
+          </button>
         </form>
 
         <div class="row" style="margin-bottom: 5px">
