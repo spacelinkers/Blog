@@ -1,12 +1,13 @@
 {% extends "base_account.html" %} {% load crispy_forms_tags %} {% block head %}
 <title>Register</title>
 {% endblock %} {% block body %}
+
 <div class="container login-container">
   <div class="login-body-flex">
     <div class="login-column login-hidden"></div>
     <div class="login-column login-column-act">
       <div class="login-box">
-        <h5 class="login-box-title">Create Your Account</h5>
+        <h5 class="login-box-title">Sign in</h5>
         <div class="login-icon-try">
           <p class="lgoin-icon">
             <a class="login-button login-button-git">
@@ -30,16 +31,20 @@
             </a>
           </p>
         </div>
-        <a
-          class="button button-fullwidth button-light button-signup"
-          style="box-shadow: rgb(221, 221, 221) 0px 4px 0px;"
-          href="{% url 'blog:articles' %}"
-          >Signup with email
-        </a>
+
+        <form method="post">
+          {% csrf_token %}
+          {{ form | crispy }}
+          <br />
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+
         <div class="row" style="margin-bottom: 5px">
-          <div class="col forgot-text"></div>
           <div class="col forgot-text">
-            <a href="{% url 'accounts:login' %}">Have an account? Sign in</a>
+            <a href="{% url 'accounts:password_reset' %}">Forgot password</a>
+          </div>
+          <div class="col forgot-text">
+            <a href="{% url 'accounts:register' %}">Need an account? Sign up</a>
           </div>
         </div>
       </div>

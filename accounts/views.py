@@ -16,6 +16,9 @@ from accounts.forms import (
 class LogInView(LoginView):
     template_name = 'accounts/login.html'
 
+class LogInViewWithEmail(LogInView):
+    template_name = 'accounts/login_email.html'
+
 class LogOutView(LogoutView):
     template_name = 'accounts/logout.html'
 

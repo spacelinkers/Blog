@@ -1,17 +1,52 @@
-{% extends "base.html" %}
-{% load crispy_forms_tags %}
-
-{% block head %}
+{% extends "base_account.html" %} {% load crispy_forms_tags %} {% block head %}
 <title>Register</title>
-{% endblock %}
-
-{% block body %}
-<div class="card mb-4">    
-<form method="post">
-    {% csrf_token %}
-    {{form|crispy}}
-    <br>
-    <button type="submit" class = "btn btn-primary">Log in</button>
-</form>
+{% endblock %} {% block body %}
+<div class="container login-container">
+  <div class="login-body-flex">
+    <div class="login-column login-hidden"></div>
+    <div class="login-column login-column-act">
+      <div class="login-box">
+        <h5 class="login-box-title">Sign in</h5>
+        <div class="login-icon-try">
+          <p class="lgoin-icon">
+            <a class="login-button login-button-git">
+              <span class="icon">
+                <i class="fa fa-github" style="color: white"> </i>
+              </span>
+            </a>
+          </p>
+          <p class="lgoin-icon">
+            <a class="login-button login-button-gmail">
+              <span class="icon">
+                <i class="fa fa-google" style="color: white"> </i>
+              </span>
+            </a>
+          </p>
+          <p class="lgoin-icon">
+            <a class="login-button login-button-fb">
+              <span class="icon">
+                <i class="fa fa-facebook" style="color: white"> </i>
+              </span>
+            </a>
+          </p>
+        </div>
+        <a
+          class="button button-fullwidth button-light button-signup"
+          style="box-shadow: rgb(221, 221, 221) 0px 4px 0px;"
+          href="{% url 'accounts:loginWithEmail' %}"
+          >Login with email</a
+        >
+        <div class="row" style="margin-bottom: 5px">
+          <div class="col forgot-text">
+            <a href="{% url 'accounts:password_reset' %}">Forgot password</a>
+          </div>
+          <div class="col forgot-text">
+            <a href="{% url 'accounts:register' %}">Need an account? Sign up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-column login-hidden"></div>
+  </div>
 </div>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.urls import path, re_path
 
 from accounts.views import (
-    LogInView, LogOutView, RegsiterView,
+    LogInView, LogInViewWithEmail, LogOutView, RegsiterView,
     EditProfileView, EditUserInfoView, ChangePasswordView,
     ResetPasswordView, ResetPasswordDoneView,
     ResetPasswordConfirmView, ResetPasswordComplete,
@@ -10,6 +10,7 @@ from accounts.views import (
 app_name = 'accounts'
 urlpatterns = [
     re_path(r'^login/$', LogInView.as_view(), name = 'login'),
+    re_path(r'^login/email$', LogInViewWithEmail.as_view(), name = 'loginWithEmail'),
     re_path(r'^logout/$', LogOutView.as_view(), name = 'logout'),
 
     re_path(r'^register/$', RegsiterView.as_view(), name = 'register'),
