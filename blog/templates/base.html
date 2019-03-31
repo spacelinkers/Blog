@@ -106,25 +106,37 @@
 
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'blog:articles' %}">Python </a>
+              <a class="nav-link" href="{% url 'blog:tag' 1 %}">Python </a>
               <span class="sr-only">(current)</span>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'blog:articles' %}">C/C++ </a>
+              <a class="nav-link" href="{% url 'blog:tag' 3 %}">C/C++ </a>
               <span class="sr-only">(current)</span>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'blog:articles' %}">Django </a>
+              <a class="nav-link" href="{% url 'blog:tag' 2 %}">Django </a>
               <span class="sr-only">(current)</span>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'blog:articles' %}">React </a>
+              <a class="nav-link" href="{% url 'blog:tag' 4 %}">React </a>
               <span class="sr-only">(current)</span>
             </li>
           </ul>
           <ul class="navbar-nav right">
+            <form class="form-inline">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn my-2 my-sm-0" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'blog:articles' %}">Python </a>
+              <a class="nav-link" href="{% url 'blog:articles' %}"> </a>
               <span class="sr-only">(current)</span>
             </li>
           </ul>
@@ -140,19 +152,6 @@
       <br />
     </div>
 
-    <div class="header-flex">
-      <div class="footer-flex-div">
-        <a href="{% url 'accounts:register' %}">About </a>
-      </div>
-      <div class="footer-flex-div">
-        <a href="{% url 'accounts:register' %}">Terms </a>
-      </div>
-      <div class="footer-flex-div">
-        <a href="{% url 'accounts:register' %}">Privecy </a>
-      </div>
-      <div class="footer-flex-div">
-        <a href="{% url 'accounts:register' %}">Contact </a>
-      </div>
-    </div>
+    {% block footer %} {% endblock %}
   </body>
 </html>

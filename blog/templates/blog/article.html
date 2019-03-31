@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load crispy_forms_tags %} {% block head %}
 <title>Article</title>
 {% endblock %} {% block header %}
-<div class="header-other-flex">
+<div class="header-flex is_fade">
   <div class="header-other-flex-div">
     <a href="{% url 'accounts:register' %}">Getting stated </a>
   </div>
@@ -80,4 +80,19 @@
   </div>
 </div>
 
+{% endblock %} {% block footer %}
+<div class="header-flex is_white">
+  <div class="footer-flex-div is_color_inv">
+    <a href="{% url 'accounts:register' %}">About </a>
+  </div>
+  <div class="footer-flex-div is_color_inv">
+    <a href="{% url 'accounts:register' %}">Terms </a>
+  </div>
+  <div class="footer-flex-div is_color_inv">
+    <a href="{% url 'accounts:register' %}">Privecy </a>
+  </div>
+  <div class="footer-flex-div is_color_inv">
+    <a href="{% url 'accounts:register' %}">Contact </a>
+  </div>
+</div>
 {% endblock %}

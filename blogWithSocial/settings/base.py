@@ -135,5 +135,6 @@ LOGIN_EXEMPT_URLS = (
 ACCESS_ALL_URL = (
     r'^media/',
     r'^blog/$',
+    r'^blog/(?P<id>\d+)/$',
     r'^blog/article/(?P<id>\d+)/$',
 )

@@ -1,0 +1,135 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block head %}
+<title>Articles</title>
+{% endblock %} {% block header %}
+<div class="header-flex is_color">
+  <div class="header-flex-div">
+    <a href="{% url 'accounts:register' %}">Getting stated </a>
+  </div>
+  <div class="header-flex-div">
+    <a href="{% url 'accounts:login' %}">Sign in</a>
+  </div>
+</div>
+{% endblock %} {% block body %}
+<div class="side_bar">
+  <h6 class="heading-6">Tagged in</h6>
+  {% for tag in tag %}
+  <h3>{{ tag.tag_name }}</h3>
+  {% endfor %}
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h3 class="heading-6">Tags</h3>
+    <div class="tag-design is_main">
+      <a href="{% url 'blog:tag' 3 %}">C/C++</a>
+    </div>
+    <div class="is_tag">
+      <div class="tag-design is_sub">Algorithm</div>
+      <div class="tag-design is_sub">Graph</div>
+      <div class="tag-design is_sub">Search</div>
+      <div class="tag-design is_sub">Data Structure</div>
+    </div>
+
+    <div class="tag-design is_main">
+      <a href="{% url 'blog:tag' 1 %}">Python</a>
+    </div>
+    <div class="is_tag">
+      <div class="tag-design is_sub">
+        <a href="{% url 'blog:tag' 4 %}">Django</a>
+      </div>
+      <div class="tag-design is_sub">Data</div>
+    </div>
+
+    <div class="tag-design is_main">
+      <a href="{% url 'blog:tag' 2 %}">React</a>
+    </div>
+    <div class="is_tag">
+      <div class="tag-design is_sub">Component</div>
+      <div class="tag-design is_sub">Props</div>
+    </div>
+
+    <div class="tag-design is_main">
+      <a href=""> Linux</a>
+    </div>
+    <div class="is_tag">
+      <div class="tag-design is_sub">Kernel</div>
+      <div class="tag-design is_sub">Ubuntu</div>
+    </div>
+  </div>
+  <br />
+  <div class="col-md-8">
+    {% for article in pythons %}
+    <div class="row">
+      <div class="col-md-8 is_card">
+        <div class="row">
+          <div class="col-sx-1" style="margin-left: 15px">
+            {% load static%} {% if article.article_image %}
+            <img
+              src="{{ article.author.userprofile.profile_image.url }}"
+              height="40"
+              width="40"
+              class="circle"
+            />
+            {% else %}
+            <img
+              src="{% static 'accounts/default_user.png' %}"
+              height="40"
+              width="40"
+              class="circle"
+            />
+            {% endif %}
+          </div>
+          <div class="col-sx-1">
+            <a href="">{{ article.author }}</a>
+            <p class="col-date">{{ article.create_date }}</p>
+          </div>
+        </div>
+
+        <div>
+          <a href="{% url 'blog:article' article.id %}">
+            {% load static%} {% if article.article_image %}
+            <img
+              src="{{ article.article_image.url }}"
+              height="174"
+              width="610"
+            />
+            {% else %}
+            <img
+              src="{% static 'accounts/default_user.png' %}"
+              height="174"
+              width="610"
+            />
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-article-title">
+          <a href="{% url 'blog:article' article.id %}">
+            <h4>{{ article.title }}</h4>
+          </a>
+        </div>
+        <div class="read_more">
+          <a href="{% url 'blog:article' article.id %}">
+            Read more...
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %} {% block footer %}
+<div class="header-flex is_color">
+  <div class="footer-flex-div is_color">
+    <a href="{% url 'accounts:register' %}">About </a>
+  </div>
+  <div class="footer-flex-div is_color">
+    <a href="{% url 'accounts:register' %}">Terms </a>
+  </div>
+  <div class="footer-flex-div is_color">
+    <a href="{% url 'accounts:register' %}">Privecy </a>
+  </div>
+  <div class="footer-flex-div is_color">
+    <a href="{% url 'accounts:register' %}">Contact </a>
+  </div>
+</div>
+{% endblock %}

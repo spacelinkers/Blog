@@ -2,12 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 
+class Tag(models.Model):
+    tag_name = models.CharField(max_length = 50, null=True, verbose_name='Tag Name')
+    def __str__(self):
+        return self.tag_name
+    
+    class Meta:
+        ordering = ['tag_name']
+
 class Article(models.Model):
     author = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = 'author')
     title = models.CharField(max_length = 50, verbose_name = 'Title')
     content = RichTextField()
     create_date = models.DateTimeField(auto_now_add = True, verbose_name = 'Date Created')
     article_image = models.ImageField(upload_to = 'blog_cover', blank = True, null = True, verbose_name = 'Add Cover Photo')
+    tag = models.ForeignKey(Tag, on_delete = models.CASCADE, verbose_name = 'Tag')
 
     def __str__(self):
         return self.title

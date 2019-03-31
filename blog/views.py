@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView,DetailView
 from django.contrib.auth.models import User
 
-from blog.models import Article
+from blog.models import Article, Tag
 from blog.forms import AddarticleFormView
 
 class ArticlesView(TemplateView):
@@ -72,3 +72,19 @@ class DeleteView(TemplateView):
 
 class CommentView(TemplateView):
     template_name = 'blog/comment.html'
+
+class TagView(TemplateView):
+    template_name = 'blog/tag.html'
+    
+    def get(self, request, id):
+        # handle error 
+        articles = Article.objects.filter(tag=id).order_by('-create_date')
+        users = User.objects.all()
+        tag = Tag.objects.filter(id=id)
+        context = {
+            'pythons': articles,
+            'users': users,
+            'tag': tag
+        }
+        return render(request, self.template_name, context)
+
