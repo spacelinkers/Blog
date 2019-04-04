@@ -4,7 +4,7 @@ from blogWithSocial.settings.base import *
 # Start customization here
 
 DEBUG = False
-ALLOWED_HOSTS = ['dry-lake-78525.herokuapp.com']
+ALLOWED_HOSTS = ['yourdomain.com']
 
 DATABASES = {
     'default': {
