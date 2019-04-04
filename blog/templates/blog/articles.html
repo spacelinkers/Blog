@@ -34,8 +34,9 @@
     </div>
     <div class="col-article-des">
       <a href="{% url 'blog:article' article.id %}">
-        You might have found a variety of use cases of background tasks or
-        scheduled jobs in application development. For example, we can delegate…
+        <p>
+          {{ article.subtitle }}
+        </p>
       </a>
     </div>
     <div class="row">

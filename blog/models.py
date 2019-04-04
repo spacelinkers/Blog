@@ -13,6 +13,7 @@ class Tag(models.Model):
 class Article(models.Model):
     author = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = 'author')
     title = models.CharField(max_length = 50, verbose_name = 'Title')
+    subtitle = models.CharField(max_length = 150, null=True, verbose_name = 'Sub Title')
     content = RichTextField()
     create_date = models.DateTimeField(auto_now_add = True, verbose_name = 'Date Created')
     article_image = models.ImageField(upload_to = 'blog_cover', blank = True, null = True, verbose_name = 'Add Cover Photo')
